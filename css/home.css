@@ -176,6 +176,8 @@ main{
     background-color: transparent;
     border: 1px solid white;
     border-radius: 5px;
+    color: white;
+    padding: 5px;
 }
 
 .search-bar::-webkit-input-placeholder {
