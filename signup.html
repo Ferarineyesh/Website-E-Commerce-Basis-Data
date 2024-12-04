@@ -3,36 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Mart Signup</title>
+    <title>Simple Mart - Sign up</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div style="width: 100%; height: 100%; position: relative; background: #10375C">
-        <div style="left: 122px; top: 49px; position: absolute; text-align: center; color: #F3F3E0; font-size: 36px; font-family: Poppins; font-weight: 700; word-wrap: break-word">SIMPLE MART</div>
-        <img style="width: 67px; height: 65px; left: 41px; top: 44px; position: absolute; border-radius: 2000px" src="https://via.placeholder.com/67x65" />
-        <div style="width: 545px; height: 650px; left: 600px; top: 130px; position: absolute; opacity: 0.50; background: linear-gradient(109deg, #1F4529 0%); border-radius: 27px; border: 1px white solid; backdrop-filter: blur(60px)"></div>
-        <div style="width: 116px; height: 0px; left: 665px; top: 220px; position: absolute; border: 1px white solid"></div>
-        <div style="width: 1841px; height: 610px; left: -188px; top: -93px; position: absolute; background: rgba(39, 46, 63, 0.50); box-shadow: 190px 190px 190px; filter: blur(190px)"></div>
-        <div style="width: 419px; height: 50px; left: 661px; top: 669px; position: absolute; background: #1F4529; border-radius: 7px; border: 1px white solid"></div>
-        <div style="left: 950px; top: 618px; position: absolute; color: #78B3EC; font-size: 12px; font-family: Poppins; font-weight: 400; word-wrap: break-word">Forgot Password?</div>
-        <div style="left: 830px; top: 683px; position: absolute; color: white; font-size: 15px; font-family: Poppins; font-weight: 600; word-wrap: break-word">SIGN UP</div>
-        <div style="width: 419px; height:  50px; left: 661px; top: 559px; position: absolute; opacity: 0.50; background: linear-gradient(109deg, white 0%); border-radius: 7px; border: 1px white solid; backdrop-filter: blur(60px)"></div>
-        <div style="width: 419px; height: 50px; left: 661px; top: 330px; position: absolute; opacity: 0.50; background: linear-gradient(109deg, white 0%); border-radius: 7px; border: 1px white solid; backdrop-filter: blur(60px)"></div>
-        <div style="left: 669px; top: 530px; position: absolute; color: white; font-size: 15px; font-family: Poppins; font-weight: 400; word-wrap: break-word">Password</div>
-        <div style="left: 667px; top: 300px; position: absolute; color: white; font-size: 15px; font-family: Poppins; font-weight: 400; word-wrap: break-word">Username</div>
-        <div style="left: 750px; top: 733px; position: absolute">
-            <span style="color: white; font-size: 15px; font-family: Poppins; font-weight: 300; word-wrap: break-word">Already have an account?</span>
-            <a href="login.html" style="color: #78B3EC; font-size: 15px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Login</a>
+    <div class="container">
+        <div class="card">
+            <h2 class="signup-title">Signup</h2>
+            <hr class="divider">
+            <p class="welcome-message">Welcome to Simple Mart,please create your account</p>
+            <form action="login.php" method="POST">
+                <div class="form-group">
+                    <label class="input-label" for="username">Username</label>
+                    <input type="text" id="username" name="username" class="input-field" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label class="input-label" for="email">Email</label>
+                    <input type="email" id="email" name="email" class="input-field" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label class="input-label" for="password">Password</label>
+                    <input type="password" id="password" name="password" class="input-field" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="login-button">SIGN UP</button>
+            </form>
+            <p class="login-prompt">Already have an account?  <a href="login.html" class="signup-link">Login</a></p>
         </div>
-        <div style="left: 677px; top:342px; position: absolute; opacity: 0.50; color: white; font-size: 15px; font-family: Poppins; font-weight: 400; word-wrap: break-word">Enter your username</div>
-        <div style="width: 419px; height: 50px; left: 661px; top: 445px; position: absolute; opacity: 0.50; background: linear-gradient(109deg, white 0%); border-radius: 7px; border: 1px white solid; backdrop-filter: blur(60px)"></div>
-        <div style="left: 668px; top: 417px; position: absolute; color: white; font-size: 15px; font-family: Poppins; font-weight: 400; word-wrap: break-word">Email</div>
-        <div style="left: 677px; top: 459px; position: absolute; opacity: 0.50; color: white; font-size: 15px; font-family: Poppins; font-weight: 400; word-wrap: break-word">Enter your email</div>
-        <div style="width: 858px; height: 23px; left: 435px; top: 230px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Poppins; font-weight: 600; word-wrap: break-word">Welcome to Simple Mart, please create your account</div>
-        <div style="left: 677px; top: 575px; position: absolute; opacity: 0.50; color: white; font-size: 15px; font-family: Poppins; font-weight: 400; word-wrap: break-word">Enter your password</div>
-        <div style="width: 374px; height: 85px; left: 530px; top: 170px; position: absolute; text-align: center; color: white; font-size: 28px; font-family: Poppins; font-weight: 700; word-wrap: break-word">Sign up</div>
     </div>
-    <img style="width: 67px; height: 65px; left: 41px; top: 44px; position: absolute; border-radius: 2000px" src="img/logo.png" alt="Simple Mart Logo" />
 </body>
 </html>
