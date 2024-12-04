@@ -13,6 +13,29 @@ $query = mysqli_query($conn, "SELECT * FROM product");
     <link rel="stylesheet" href="./css/home.css">
     <title>Simple Mart</title>
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .card {
+            margin: 10px;
+            transition: 0.5s;
+        }
+        .card:hover {
+            border: 1.50px solid black;
+            transform: scale(1.02);
+        }
+        .card-img-top {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+        }
+        #keranjang {
+            position: fixed;
+            bottom: 0;
+            visibility: hidden; /* Awalnya disembunyikan */
+        }
         .products .primary {
             display: flex;
             flex-wrap: wrap;
@@ -49,9 +72,8 @@ $query = mysqli_query($conn, "SELECT * FROM product");
             font-size: 18px;
             font-weight: bold;
         }
-        
-        
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
     
@@ -86,8 +108,7 @@ $query = mysqli_query($conn, "SELECT * FROM product");
             <h1>Categories</h1>
         </div>
 
-        <div class="categories-list">
-        </div>
+        <div class="categories-list"></div>
 
         <div class="products" id="products">
             <div class="top">
@@ -108,14 +129,26 @@ $query = mysqli_query($conn, "SELECT * FROM product");
                 echo "<div class='item-price'>";
                 echo "<p>Rp. " . $querys["harga"] . "</p>";
                 echo "</div>";      
-                echo "<a href='' style='position:absolute;bottom:20px; left:50%; transform:translateX(-50%);'><button>Buy Now</button></a>";
+                echo "<button class='add-cart' style='position:absolute;bottom:20px; left:50%; transform:translateX(-50%);'>Buy Now</button>";
                 echo "</div>";
                 echo "</div>";
             }
             ?>
             </div>
         </div>
+
     </main>
+
+    <div class="card fixed-bottom d-flex" id="keranjang" style="opacity:0.96;">
+        <div class="card-header">
+            Keranjang
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Barang Dalam Keranjang</h5>
+            <p class="card-text">Jumlah Total: <span id="cart-count">0</span></p>
+            <div id="cart-content"></div>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-container">
@@ -134,24 +167,78 @@ $query = mysqli_query($conn, "SELECT * FROM product");
                     <a href="mailto:simplemart@gmail.com">simplemart@gmail.com</a>
                 </div>
             </div>
-            <div class="footer-center">
-                <h2>Contact Us</h2>
-                <p>Shopping Made Simple, Prices Made Right.</p>
-                <div class="footer-links">
-                    <a href="#">Home</a>
-                    <a href="#">Categories</a>
-                    <a href="#">Products</a>
-                    <a href="#">Contact Us</a>
-                </div>
-                <div class="social-icons">
-                    <a href="#"><img src="./assets/x icon.png" alt=""></a>
-                    <a href="#"><img src="./assets/ig icon.png" alt=""></a>
-                    <a href="#"><img src="./assets/fb icon.png" alt=""></a>
-                </div>
-                <p>Copyright © 2024 Simple Mart</p>
-            </div>
         </div>
     </footer>
 
+    <script>
+        let cartCount = 0;
+        const cartElement = document.getElementById('keranjang');
+        const cartCountElement = document.getElementById('cart-count');
+        const cartContentElement = document.getElementById('cart-content');
+        const cartItems = {};
+
+        document.querySelectorAll('.add-cart').forEach((button) => {
+            button.addEventListener('click', (e) => {
+                const card = e.target.closest('.card');
+                const name = card.querySelector('.item-text p').textContent;
+                const price = card.querySelector('.item-price p').textContent;
+
+                if (!cartItems[name]) {
+                    cartItems[name] = { quantity: 1, price: price };
+                } else {
+                    cartItems[name].quantity++;
+                }
+
+                cartCount++;
+                cartCountElement.textContent = cartCount;
+                renderCartItems();
+                cartElement.style.visibility = 'visible';
+            });
+        });
+
+        function renderCartItems() {
+            cartContentElement.innerHTML = '';
+            for (const [name, details] of Object.entries(cartItems)) {
+                const div = document.createElement('div');
+                div.innerHTML = `
+                    <span>${name}</span> - 
+                    <span>${details.price}</span> - 
+                    <span>Qty: ${details.quantity} 
+                    <button class="btn-increase" data-name="${name}">+</button>
+                    <button class="btn-decrease" data-name="${name}">-</button></span>
+                `;
+                cartContentElement.appendChild(div);
+            }
+
+            document.querySelectorAll('.btn-increase').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const name = btn.getAttribute('data-name');
+                    cartItems[name].quantity++;
+                    cartCount++;
+                    cartCountElement.textContent = cartCount;
+                    renderCartItems();
+                });
+            });
+
+            document.querySelectorAll('.btn-decrease').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const name = btn.getAttribute('data-name');
+                    if (cartItems[name].quantity > 1) {
+                        cartItems[name].quantity--;
+                    } else {
+                        delete cartItems[name];
+                    }
+                    cartCount--;
+                    cartCountElement.textContent = cartCount;
+                    renderCartItems();
+
+                    if (cartCount === 0) {
+                        cartElement.style.visibility = 'hidden';
+                    }
+                });
+            });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
