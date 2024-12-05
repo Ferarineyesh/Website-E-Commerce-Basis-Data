@@ -3,113 +3,113 @@ body {
     margin: 0;
     background-color: #10375C;
     font-family: 'Poppins', sans-serif;
-    display: flex; /* Use flexbox */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 100vh; /* Full viewport height */
-    width: 100vw;
-    overflow-x: hidden;
+    color: #F3F3E0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-/* Common styles */
+/* Container */
 .container {
+    display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
-    position: relative; /* Changed from 'center' to 'relative' */
+    background-color: #10375C;
 }
 
-.border-line {
-    width: 110px;
-    height: 0;
-    position: absolute;
-    border: 1px rgba(255, 255, 255, 0.8) solid;
-}
+.divider {
+    border: none;
+    border-top: 2px solid #555; /* Warna garis */
+    margin: 10px 0;
+    margin-top: -4px ; /* Jarak antara judul dan teks Welcome */
+    width: 100%; /* Panjang penuh */
+  }
 
-.blur-background {
-    width: 1841px;
-    height: 610px;
-    position: absolute;
-    background: rgba(39, 46, 63, 0.5);
-    box-shadow: 190px 190px 190px;
-    filter: blur(190px);
-}
-
+/* Card */
 .card {
-    width: 545px;
-    height: 566px;
-    position: relative; /* Changed from 'center' to 'relative' */
-    opacity: 0.5;
-    background: linear-gradient(136deg, #1F4529 0%);
-    border-radius: 27px;
-    border: 1px white solid;
-    backdrop-filter: blur(60px);
-    display: flex; /* Use flexbox for inner content if needed */
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center children horizontally */
-    justify-content: center; /* Center children vertically */
+    background-color: #1B2B3C;
+    padding: 40px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-.input-box {
-    width: 419px;
-    height: 50px;
-    opacity: 0.5;
-    background: linear-gradient(109deg, white 0%);
-    border-radius: 7px;
-    border: 1px black solid;
-    backdrop-filter: blur(60px);
-}
-
-.text {
-    position: absolute;
+/* Title */
+.login-title {
+    font-size: 24px;
     color: white;
-    font-size: 15px;
-    font-weight: 400;
-    overflow-wrap: break-word; /* Update from word-wrap */
+    margin-bottom: 10px;
+    text-align: left;
 }
 
-/* Custom Text Styles */
-.text-blue {
-    color: #78B3EC;
-    font-size: 12px;
-    font-weight: 400;
+/* Welcome Message */
+.welcome-message {
+    font-size: 14px;
+    color: #ccc;
+    text-align: left;
+    margin-bottom: 20px;
 }
 
-.text-green {
-    color: #BDCA2E;
-    font-weight: 500;
+/* Form Group */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
 }
 
-.text-large {
+/* Input Label */
+.input-label {
+    font-size: 14px;
     color: white;
-    font-size: 28px;
-    font-weight: 700;
+    margin-bottom: 5px;
+    display: block;
 }
 
-.text-xl {
-    color: #F3F3E0;
-    font-size: 36px;
-    font-weight: 700;
+/* Input Field */
+.input-field {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #222;
+    color: white;
+    font-size: 14px;
+    box-sizing: border-box;
 }
 
-/* Buttons */
+/* Signup Button */
 .login-button {
-    width: 419px;
-    height: 50px;
+    width: 100%;
+    height: 40px;
     background: #1F4529;
-    border-radius: 7px;
-    border: 1px white solid;
+    border-radius: 5px;
+    border: none;
     color: white;
-    font-size: 15px;
-    font-weight: 600;
-    text-align: center;
-    line-height: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-/* Logo */
-.logo {
-    width: 67px;
-    height: 65px;
-    position: absolute;
-    border-radius: 2000px;
+.login-button:hover {
+    background-color: #3D6E42;
+}
+
+/* Login Prompt */
+.login-prompt {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ccc;
+    text-align: center;
+}
+
+.signup-link {
+    color: #0B90C4;
+    text-decoration: none;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
 }
