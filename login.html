@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Mart - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2 class="login-title">Login</h2>
+            <hr class="divider">
+            <p class="welcome-message">Welcome to Simple Mart</p>
+            <form action="login.php" method="POST">
+                <div class="form-group">
+                    <label class="input-label" for="username">Username</label>
+                    <input type="text" id="username" name="username" class="input-field" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label class="input-label" for="password">Password</label>
+                    <input type="password" id="password" name="password" class="input-field" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="login-button">LOGIN</button>
+            </form>
+            <p class="login-prompt">Don’t have an account? <a href="signup.html" class="signup-link">Sign up</a></p>
+        </div>
+    </div>
+</body>
+</html>
