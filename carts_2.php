@@ -1,49 +1,25 @@
 <?php
 session_start();
-$_SESSION['cartItems'] = null;
-include("conn.php");
-$query = mysqli_query($conn, "SELECT * FROM cart_items where user_id=2");
+
 // Initialize cart items or set default
 if (!isset($_SESSION['cartItems'])) {
-    $_SESSION['cartItems'] = [];
+    $_SESSION['cartItems'] = [
+        [
+            'id' => 1,
+            'name' => 'Chitato Snack rasa keju 68 g',
+            'price' => 11000,
+            'image' => 'item1.png',
+            'quantity' => 0
+        ],
+        [
+            'id' => 2,
+            'name' => 'Bango Kecap Manis 135mL',
+            'price' => 11500,
+            'image' => 'item2.png',
+            'quantity' => 0
+        ]
+    ];
 }
-
-function addToCart($id, $name, $price, $image, $quantity) {
-  foreach ($_SESSION['cartItems'] as &$item) {
-      if ($item['id'] == $id) {
-          // Jika item sudah ada, update jumlah
-          $item['quantity'] += $quantity;
-          return;
-      }
-  }
-  // Jika item belum ada, tambahkan sebagai item baru
-  $_SESSION['cartItems'][] = [
-      'id' => $id,
-      'name' => $name,
-      'price' => $price,
-      'image' => $image,
-      'quantity' => $quantity
-  ];
-}
-$counts=1;
-if($query){
-  foreach($query as $querys){
-
-    $ids = $querys["product_id"];
-    $que = mysqli_query($conn, "SELECT nama,harga,image_url from product where product_id=$ids");
-    
-    if($que){
-      $res = mysqli_fetch_assoc($que);
-      if($res){
-        addToCart($counts,$res['nama'],$res['harga'],$res['image_url'],$querys['quantity']);
-      }
-    }
-    $counts++;
-  }
-  
-}
-
-$counts--;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'], $_POST['action'])) {
     $id = $_POST['id'];
@@ -232,7 +208,7 @@ $totals = calculateTotals($_SESSION['cartItems']);
 <body>
     <header class="header">
         <div class="logo-container">
-            <img src="./assets/logo.png" alt="Simple Mart" class="logo">
+            <img src="logo.png" alt="Simple Mart" class="logo">
             <span class="logo-text">SIMPLE MART</span>
         </div>
         <nav class="nav-links">
@@ -240,7 +216,7 @@ $totals = calculateTotals($_SESSION['cartItems']);
             <a href="#">Categories</a>
             <a href="#">Products</a>
             <a href="#">Contact Us</a>
-            <img src="./assets/profil.png" alt="Profile" class="profile-icon">
+            <img src="profil.png" alt="Profile" class="profile-icon">
         </nav>
     </header>
 
