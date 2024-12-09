@@ -106,143 +106,24 @@ $totals = calculateTotals($_SESSION['cartItems']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Carts - Simple Mart</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1B3A57;
-            margin: 0;
-            padding: 0;
-            color: white;
-        }
-        .header {
-            background-color: #FFFBF2;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            height: 40px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            color: #000;
-        }
-        .nav-links a {
-            color: #000;
-            text-decoration: none;
-        }
-        .profile-icon {
-            width: 30px;
-            height: 30px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .cart-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
-        }
-        .cart-item {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .cart-item-content {
-            display: flex;
-            gap: 20px;
-        }
-        .cart-item img {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
-            background-color: white;
-            border-radius: 8px;
-            padding: 10px;
-        }
-        .quantity-control {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .quantity-control button {
-            background-color: transparent;
-            color: white;
-            border: 1px solid white;
-            width: 24px;
-            height: 24px;
-            border-radius: 4px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .order-summary {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 20px;
-        }
-        .proceed-btn {
-            background-color: #2E7D32;
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 100%;
-            border-radius: 4px;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-        .continue-btn {
-            background-color: #424242;
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 100%;
-            border-radius: 4px;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-        .terms {
-            font-size: 12px;
-            margin: 10px 0;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-        .logo-text {
-            color: #2E7D32;
-            font-size: 24px;
-            font-weight: bold;
-            margin-left: 10px;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="cart.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo-container">
-            <img src="./assets/logo.png" alt="Simple Mart" class="logo">
-            <span class="logo-text">SIMPLE MART</span>
-        </div>
-        <nav class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Categories</a>
-            <a href="#">Products</a>
-            <a href="#">Contact Us</a>
-            <img src="./assets/profil.png" alt="Profile" class="profile-icon">
-        </nav>
-    </header>
+<header class="header">
+    <div class="logo-container">
+        <img src="./assets/logo.png" alt="Logo" class="logo">
+        <h1 class="name">SIMPLE MART</h1>
+    </div>
+    <nav class="nav-links">
+        <a href="/index.php" class="nav-link">Home</a>
+        <a href="#categories" class="nav-link">Categories</a>
+        <a href="#products" class="nav-link">Products</a>
+        <a href="/cart.php" class="nav-link">Carts</a>
+        <a href="#contact" class="nav-link">Contact Us</a>
+        <a href="/profile.html" class="profile-link"><img src="/assets/profil.png" alt="Profile" class="profile-icon"></a>
+    </nav>
+</header>
 
     <div class="container">
         <h1>MY CARTS</h1>
@@ -317,5 +198,7 @@ $totals = calculateTotals($_SESSION['cartItems']);
             });
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha384-oBWosVvOtc/bDTsKSC4+dKF6MBj8ODIQegT8vZPb7hZ1Cfln6Ak4KPbbIhA6g11E" crossorigin="anonymous"></script>
 </body>
 </html>

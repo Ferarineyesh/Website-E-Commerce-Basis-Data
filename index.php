@@ -17,22 +17,20 @@ $query = mysqli_query($conn, "SELECT * FROM product");
 </head>
 <body>
     
-    <header id="logos">
-        <div class="logo" id="logos">
-            <img src="./assets/logo.png" alt="">
-            <h1 class="name">SIMPLE MART</h1>
-        </div>
-        <section class="header-center">
-            <nav>
-                <a href="#" class="active">Home</a>
-                <a href="#categories">Categories</a>
-                <a href="#products">Products</a>
-                <a href="cart.php">Cart</a>
-                <a href="#contact">Contact Us</a>
-                <a href="/profile.html" class="profile"><img src="./assets/profil.png"></a>
-            </nav>
-            </section>
-    </header>
+<header class="header">
+    <div class="logo-container">
+        <img src="./assets/logo.png" alt="Logo" class="logo">
+        <h1 class="name">SIMPLE MART</h1>
+    </div>
+    <nav class="nav-links">
+        <a href="/index.php" class="nav-link">Home</a>
+        <a href="#categories" class="nav-link">Categories</a>
+        <a href="#products" class="nav-link">Products</a>
+        <a href="/cart.php" class="nav-link">Carts</a>
+        <a href="#contact" class="nav-link">Contact Us</a>
+        <a href="/profile.html" class="profile-link"><img src="/assets/profil.png" alt="Profile" class="profile-icon"></a>
+    </nav>
+</header>
 
     <main>
         <div class="hero-section">
@@ -87,7 +85,7 @@ $query = mysqli_query($conn, "SELECT * FROM product");
             <p class="card-text">Jumlah Total: <span id="cart-count">0</span></p>
             <div id="cart-content"></div>
         </div>
-        <button class="btn btn-primary" id="tambah" style="width: 170px;">Add To Cart</button>
+        <button class="addtocart" id="tambah" style="width: 170px; margin-bottom: 50px; padding-bottom: 5px">Add To Cart</button>
     </div>
 
     <footer>
@@ -95,7 +93,7 @@ $query = mysqli_query($conn, "SELECT * FROM product");
             <div class="footer-left">
                 <div class="logo-footer">
                     <img src="./assets/logo.png" alt="">
-                    <h1 id="contact">SIMPLE MART</h1>
+                    <h1 id="contact" class="contact">SIMPLE MART</h1>
                 </div>
                 <p>Simple Mart is your go-to online store for a wide range of products at unbeatable prices.</p>
                 <div class="telp" id="contact">
@@ -149,9 +147,11 @@ function renderCartItems() {
         div.innerHTML = `
             <span>${name}</span> - 
             <span>Rp. ${details.price}</span> - 
-            <span>Qty: ${details.quantity} 
+            <span>Qty: ${details.quantity}
+            <div class= "button"> 
             <button class="btn-increase" data-name="${name}">+</button>
             <button class="btn-decrease" data-name="${name}">-</button></span>
+            </div>
         `;
         cartContentElement.appendChild(div);
     }

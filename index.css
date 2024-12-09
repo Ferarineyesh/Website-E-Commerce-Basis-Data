@@ -6,9 +6,92 @@
     box-sizing: border-box;
 }
 
+.header {
+    background-color: #F3F3E0;
+    height: 86px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo section styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-left: 18px;
+}
+
+.logo {
+    width: 67px;
+    height: 65px;
+    top: 11px;
+    left: 14px;
+    margin-right: 10px;
+}
+
+.name {
+    margin: 0;
+    width: 237px;
+    height: 54px;
+    top: 16px;
+    margin-top: 7px;
+    margin-left: 5px;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 54px;
+    color: #2E5E37;
+}
+
+/* Navigation link styling */
+.nav-links {
+    display: flex;
+    gap: 15px;
+    font-size: 16px;
+    align-items: right;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    transition: 0.2s;
+}
+
+/* Profile icon styling */
+.profile-link {
+    display: inline-block;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #c7b79b;
+    padding: 5px;
+}
+
+
+/* Navbar link hover effect */
+header nav a:hover {
+    color: white;
+    background-color: #264e26;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.profile-link:hover {
+    background: none;
+    padding: 0;
+}
+
+/* Body background color to match */
+body {
+    background-color: #142F48;
+    color: white;
+}
+
+
 header nav a {
-    font-family: 'Kanit';
-    font-weight: lighter;
     color: rgb(0, 0, 0);
     text-decoration: none;
     margin: 0 15px;
@@ -39,22 +122,15 @@ a.active {
 }
 
 nav a:hover {
-    color: #1F4529;
-    transform: scale(1.05);
+    background: #1F4529;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 2px;
 }
 
 .profile:hover {
     background: none;
     padding: 0;
-}
-
-.name {
-    font-weight: 700;
-    margin-top: 10px;
-}
-
-.ul {
-    margin-top: 10px;
 }
 
 .title {
@@ -119,7 +195,18 @@ nav a:hover {
 .card {
     margin: 10px;
     transition: 0.5s;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    padding: 16px;
+    width:250px;
+    height:420px;
+    position:relative;
+    align-items:center;
 }
+
 .card:hover {
     border: 1.50px solid black;
     transform: scale(1.02);
@@ -133,7 +220,43 @@ nav a:hover {
     position: fixed;
     bottom: 0;
     visibility: hidden; /* Awalnya disembunyikan */
+    max-width: 500px;
+    align-items: center;
 }
+
+.button {
+    padding: 20px 10px; /* Add some padding */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    display: flex; /* Makes buttons inline (side by side) */
+    margin-left: 5px; /* Space between the buttons */
+}
+
+.btn-increase {
+    background-color: #4CAF50; /* Green background for + button */
+    color: white;
+}
+
+.btn-increase:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Decrease button styles */
+.btn-decrease {
+    background-color: #f44336; /* Red background for - button */
+    color: white; /* White text */
+}
+
+.btn-decrease:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+.addtocart:hover {
+    background-color: #142F48;
+}
+
 .products .primary {
     display: flex;
     flex-wrap: wrap;
@@ -145,18 +268,7 @@ nav a:hover {
     box-sizing: border-box;
     margin-bottom: 16px;
 }
-.card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    background-color: #fff;
-    padding: 16px;
-    width:250px;
-    height:420px;
-    position:relative;
-    align-items:center;
-}
+
 .card .item img {
     max-width: 100%;
     height: auto;
@@ -180,4 +292,21 @@ nav a:hover {
     bottom:20px;
     left:50%;
     transform:translateX(-50%);
+}
+
+.footer-container {
+    margin-left: 16px;
+}
+
+.contact {
+    margin: 0;
+    width: 237px;
+    height: 54px;
+    top: 16px;
+    margin-top: 7px;
+    margin-left: 5px;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 54px;
+    color: #2E5E37;
 }
