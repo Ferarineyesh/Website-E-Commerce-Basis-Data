@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    font-family: 'Poppins';
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Header styling */
+.header {
+    background-color: #F3F3E0;
+    height: 86px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo section styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-left: 18px;
+}
+
+.logo {
+    width: 67px;
+    height: 65px;
+    top: 11px;
+    left: 14px;
+    margin-right: 10px;
+}
+
+.name {
+    margin: 0;
+    width: 237px;
+    height: 54px;
+    top: 16px;
+    margin-top: 7px;
+    margin-left: 5px;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 54px;
+    color: #2E5E37;
+}
+
+/* Navigation link styling */
+.nav-links {
+    display: flex;
+    gap: 15px;
+    font-size: 16px;
+    align-items: right;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    transition: 0.2s;
+}
+
+/* Profile icon styling */
+.profile-link {
+    display: inline-block;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #c7b79b;
+    padding: 5px;
+}
+
+
+/* Navbar link hover effect */
+header nav a:hover {
+    color: white;
+    background-color: #264e26;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.profile-link:hover {
+    background: none;
+    padding: 0;
+}
+
+/* Body background color to match */
+body {
+    background-color: #142F48;
+    color: white;
+}
+
+
+header nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.header-center {
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+    align-items: center;
+}
+
+header.sticky {
+    padding: 17px;
+    transition: 0.3s ease-in-out;
+}
+
+nav {
+    display: block;
+    align-items: center;
+}
+
+
+a.active {
+    border-radius: 2px;
+}
+
+nav a:hover {
+    background: #1F4529;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 2px;
+}
+
+.profile:hover {
+    background: none;
+    padding: 0;
+}
+
+/* Main content container */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* Heading style */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Layout for the cart grid */
+.cart-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+/* Individual cart item style */
+.cart-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Content inside each cart item */
+.cart-item-content {
+    display: flex;
+    gap: 20px;
+}
+
+/* Cart item image style */
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Controls for quantity of items */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Style for quantity buttons */
+.quantity-control button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Order summary box style */
+.order-summary {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* Proceed button style */
+.proceed-btn {
+    background-color: #2E7D32;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Continue shopping button style */
+.continue-btn {
+    background-color: #424242;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Terms and conditions text */
+.terms {
+    font-size: 12px;
+    margin: 10px 0;
+}
