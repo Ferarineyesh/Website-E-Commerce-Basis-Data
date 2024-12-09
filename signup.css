@@ -1,6 +1,6 @@
 /* Body style */
 body {
-  margin: 0;
+  margin: 5px;
   background-color: #10375C;
   font-family: 'Poppins', sans-serif;
   color: #F3F3E0;
@@ -35,6 +35,8 @@ body {
   width: 350px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* Title */

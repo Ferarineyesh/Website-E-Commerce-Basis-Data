@@ -39,10 +39,8 @@ a.active {
 }
 
 nav a:hover {
-    background: #1F4529;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 2px;
+    color: #1F4529;
+    transform: scale(1.05);
 }
 
 .profile:hover {

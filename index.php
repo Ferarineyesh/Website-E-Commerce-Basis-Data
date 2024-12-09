@@ -17,8 +17,8 @@ $query = mysqli_query($conn, "SELECT * FROM product");
 </head>
 <body>
     
-    <header>
-        <div class="logo">
+    <header id="logos">
+        <div class="logo" id="logos">
             <img src="./assets/logo.png" alt="">
             <h1 class="name">SIMPLE MART</h1>
         </div>
@@ -27,8 +27,9 @@ $query = mysqli_query($conn, "SELECT * FROM product");
                 <a href="#" class="active">Home</a>
                 <a href="#categories">Categories</a>
                 <a href="#products">Products</a>
+                <a href="cart.php">Cart</a>
                 <a href="#contact">Contact Us</a>
-                <a href="/profile.html" class="profile"><img src="/assets/profil.png"></a>
+                <a href="/profile.html" class="profile"><img src="./assets/profil.png"></a>
             </nav>
             </section>
     </header>
@@ -77,9 +78,9 @@ $query = mysqli_query($conn, "SELECT * FROM product");
 
     </main>
 
-    <div class="card fixed-bottom d-flex" id="keranjang" style="opacity:0.96;">
+    <div class="card fixed-bottom d-flex" id="keranjang" style="opacity:0.96; width:100%;">
         <div class="card-header">
-            Keranjang
+            <h1>Keranjang</h1>
         </div>
         <div class="card-body">
             <h5 class="card-title">Barang Dalam Keranjang</h5>
