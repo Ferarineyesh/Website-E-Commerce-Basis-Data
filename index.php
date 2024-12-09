@@ -45,7 +45,48 @@ $query = mysqli_query($conn, "SELECT * FROM product");
             <h1 id="categories">Categories</h1>
         </div>
 
-        <div class="categories-list"></div>
+        <div class="categories-list">
+        <div class="list">
+                    <a href=""><img src="./assets/kitchen.png" alt=""></a>
+                    <span>Kitchen Needs</span>
+                </div>
+                <div class="list">
+                    <a href=""><img src="./assets/mother.png" alt=""></a>
+                    <span>Mother and <br>Child’s Needs</span>
+                </div>
+                <div class="list">
+                    <a href=""><img src="./assets/home.png" alt=""></a>
+                    <span>Home Needs</span>
+                </div>
+                <div class="list">
+                    <a href=""><img src="./assets/food.png" alt=""></a>
+                    <span>Food</span>
+                </div>
+                <div class="list">
+                    <a href=""><img src="./assets/drink.png" alt=""></a>
+                    <span>Drink</span>
+                </div>
+                <div class="list">
+                    <a href=""><img src="./assets/frozen.png" alt=""></a>
+                    <span>Frozen Products</span>
+                </div>
+                <div class="list">
+                    <a href=""><img src="./assets/personal.png" alt=""></a>
+                    <span>Personal Care</span>
+                </div>
+                <div class="list">
+                    <a href=""><img src="./assets/health.png" alt=""></a>
+                    <span>Health Needs</span>
+                </div>
+                <div class="list">
+                    <a href=""><img src="./assets/lifestyle.png" alt=""></a>
+                    <span>Lifestyle</span>
+                </div>
+                <div class="list">
+                    <a href=""><img src="./assets/pet.png" alt=""></a>
+                    <span>Pet Foods</span>
+                </div>
+        </div>
 
         <div class="products" id="products">
             <div class="top">
