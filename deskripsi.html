@@ -1,28 +1,31 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>My Carts - Simple Mart</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Page</title>
+    <!-- Poppins Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Config Tailwind -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        clifford: '#da373d',
-                    },
-                    fontFamily: {
-                        poppins: ['Poppins', 'sans-serif'], // Tambahkan font Poppins di sini
-                    },
-                },
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
             },
-        }
+          },
+        },
+      };
     </script>
-    
-
-    <style>
+     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #1B3A57;
@@ -144,11 +147,12 @@
             margin-left: 10px;
         }
     </style>
-</head>
-<body class="font-poppins">
+
+  </head>
+  <body class= " overflow-hidden font-poppins">
     <header class="header">
         <div class="logo-container">
-            <img src="logo.png" alt="Simple Mart" class="logo">
+            <img src="assets/logo.png" alt="Simple Mart" class="logo">
             <span class="logo-text">SIMPLE MART</span>
         </div>
         <nav class="nav-links">
@@ -156,37 +160,77 @@
             <a href="#">Categories</a>
             <a href="#">Products</a>
             <a href="#">Contact Us</a>
-            <img src="profil.png" alt="Profile" class="profile-icon">
+            <img src="assets/profil.png" alt="Profile" class="profile-icon">
         </nav>
     </header>
-    <div class="container mt-20 mb-10 mx-32 flex">
+    <main class="container mx-48 mt-16">
+      <section class="flex">
         <div class="imgwrapped bg-white w-1/4 flex justify-center items-center rounded-xl shadow-lg shadow-yellow-500 ">
             <img src="assets/item1.png" alt="">
         </div>
-       <div class="deskripsi ml-10 ">
-        <h1 class="font-bold text-3xl mb-5"> Chitato Snack rasa keju</h1>
-        <h2 class="font-bold text-3xl mb-5"> Rp. 11.000</h2>
-        <div class="bintang border border-b w-[600px] "> </div>
-        <div class="counter flex">
-        <h3 class="mr-5 my-8 ">Quantity: </h3>
-        <div class="button  flex justify-center items-center">
-            <div class="minus  px-3 py-2 h-8 flex justify-center items-center bg-green-900 border border-yellow-500 "> - </div>
-            <div class="angka  px-6 py-2 h-8 flex justify-center items-center bg-green-900 border border-yellow-500 "> 1 </div>
-            <div class="plus   px-3 py-2 h-8 flex justify-center items-center  bg-green-900 border border-yellow-500 "> + </div>
-        </div>
-       
-        </div>
-        <div class="buttoncontainer flex">
-            <div class="btn px-5 py-3 rounded-full text-center w-48 font-bold text-xl bg-green-900 border border-yellow-500 "> Add to cart</div>
-            <div class="btn px-5 py-3 rounded-full text-center w-48 font-bold text-xl bg-green-900 border border-yellow-500 ml-5 "> Buy it now</div>
-            <div class="btn px-5 py-3 rounded-full text-center  font-bold text-xl bg-green-900 border border-yellow-500 ml-5 "> gambar love</div>
-        </div>
-       </div> 
-    </div>
-    <div class="deskripsi mx-36 mb-2 text-2xl"> Description</div>
-    <div class="deskripsi ml-32 border-white border rounded-md">
-        <h1 class="font-bold ml-3  mt-2">Chitato Cheese Favor</h1>
-        <h2 class=" ml-3 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe tempora vero corporis dolore perferendis nihil, sapiente recusandae neque earum quidem! Molestias nemo repellendus necessitatibus explicabo. Ducimus nulla eveniet repellendus. Quos?</h2>
-    </div>
-    </body>
+        <article class="ml-10 font-bold text-white w-1/2">
+          <header>
+            <h1 class="text-3xl">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </h1>
+            <h2 class="text-2xl my-5">Rp. 11.000</h2>
+            <div class="text-xl pb-5 border-white border-b">⭐⭐⭐⭐⭐</div>
+          </header>
+          <section class="my-5 flex">
+            <h3 class="font-normal">Quantity:</h3>
+            <button class="ml-5 bg-green-800 px-2 border border-yellow-500">
+              -
+            </button>
+            <span class="bg-green-800 px-5 border border-yellow-500">1</span>
+            <button class="bg-green-800 px-2 border border-yellow-500">
+              +
+            </button>
+          </section>
+          <footer class="flex mt-10">
+            <button
+              class="bg-green-800 px-5 py-2 rounded-full border border-yellow-500"
+            >
+              Add to Cart
+            </button>
+            <button
+              class="ml-5 bg-green-800 px-5 py-2 rounded-full border border-yellow-500"
+            >
+              Buy it now
+            </button>
+            <button
+              class="ml-5 bg-green-800 px-2 rounded-full border border-yellow-500"
+            >
+              ♥️
+            </button>
+          </footer>
+        </article>
+      </section>
+      <section class="mt-16 text-white">
+        <header>
+          <h1 class="text-2xl">Description</h1>
+        </header>
+        <article class="w-3/4 border border-white mt-3 rounded-md">
+          <header>
+            <h2 class="font-semibold px-5 pt-3 italic">
+              Chitato Cheese Flavor
+            </h2>
+          </header>
+          <p class="text-justify px-5 pb-3">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Cupiditate, corrupti corporis quam aperiam molestias dolor, ipsam
+            perferendis voluptatum quidem inventore at ad sequi assumenda
+            consequatur non debitis minima quae modi placeat nesciunt possimus
+            reiciendis rerum perspiciatis. Impedit, repellat eum facere debitis
+            et, consectetur recusandae modi cum iure eligendi nam quisquam.
+            Beatae corrupti cupiditate fugit ratione eaque ut, tempore aliquam
+            deleniti asperiores quaerat dicta molestias voluptatibus impedit
+            distinctio ipsum minima laboriosam eum, eveniet iusto modi, illo
+            voluptas? Accusantium error quidem esse fugiat! Ut non porro,
+            laboriosam culpa, ducimus reprehenderit minima recusandae nostrum
+            odit quas dolorem iure illum dolorum possimus at. Animi!
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
 </html>
