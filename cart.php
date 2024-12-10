@@ -165,7 +165,7 @@ $totals = calculateTotals($_SESSION['cartItems']);
                     <?php echo number_format($totals['total'], 0, ',', '.'); ?>
                 </span></h3>
                 <p class="terms">By clicking the payment button, you agree to our terms and conditions.</p>
-                <button class="proceed-btn">Proceed to Payment</button>
+                <a href="/pembayaran.html"><button class="proceed-btn">Proceed to Payment</button></a>
                 <button class="continue-btn">Continue Shopping</button>
             </div>
         </div>

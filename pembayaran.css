@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    font-family: 'Poppins';
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: #F3F3E0;
+    height: 86px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo section styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-left: 18px;
+}
+
+.logo {
+    width: 67px;
+    height: 65px;
+    top: 11px;
+    left: 14px;
+    margin-right: 10px;
+}
+
+.name {
+    margin: 0;
+    width: 237px;
+    height: 54px;
+    top: 16px;
+    margin-top: 7px;
+    margin-left: 5px;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 54px;
+    color: #2E5E37;
+}
+
+/* Navigation link styling */
+.nav-links {
+    display: flex;
+    gap: 15px;
+    font-size: 16px;
+    align-items: right;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    transition: 0.2s;
+}
+
+/* Profile icon styling */
+.profile-link {
+    display: inline-block;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #c7b79b;
+    padding: 5px;
+}
+
+
+/* Navbar link hover effect */
+header nav a:hover {
+    color: white;
+    background-color: #264e26;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.profile-link:hover {
+    background: none;
+    padding: 0;
+}
+
+body {
+    background-color: #142F48;
+    color: white;
+}
+
+
+header nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.header-center {
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+    align-items: center;
+}
+
+header.sticky {
+    padding: 17px;
+    transition: 0.3s ease-in-out;
+}
+
+nav {
+    display: block;
+    align-items: center;
+}
+
+
+a.active {
+    border-radius: 2px;
+}
+
+nav a:hover {
+    background: #1F4529;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 2px;
+}
+
+.profile:hover {
+    background: none;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px ;
+}
+
+.payment-options {
+    padding: 10px 50px;
+    padding-left: 0px;
+    border-radius: 10px;
+    width: 500px;
+    font-weight: 700px;
+}
+
+.order-summary {
+    padding: 10px 50px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    width: 600px;
+    height: 635px;
+    font-weight: 700px;
+}
+
+.judul h2, .judul p {
+    display: inline;
+}
+
+.judul p {
+    display: space-around;
+    font-weight: 700px;
+    font-size: 30px;
+}
+
+.subjudul, .total {
+    display: flex;           
+    justify-content: space-between; 
+    align-items: center;       
+    margin: 10px 0;             
+}
+
+.subjudul h3, .subjudul p, .total h3, .total p {
+    font-size: 1.2em; 
+}
+
+.terms {
+    font-size: 20px;   
+    color: #ffffff;
+    width: 500px;
+}
+
+button.proceed, button.continue {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #1F4529; 
+    color: white;
+    font-weight: 600;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+
+button.proceed:hover {
+    background-color: #163A21;
+}
+
+button.continue:hover {
+    background-color: #555;
+}
+
+
+
+.payment-options h2 {
+    border-bottom: 1px solid #FFFFFF;
+    padding-bottom: 10px;
+    font-size: 35px;
+}
+
+.order-summary h2 {
+    padding-bottom: 10px;
+    font-size: 30px;
+}
+
+.payment-options p, .order-summary p {
+    margin: 10px 0;
+}
+.payment-options input[type="radio"] {
+    margin-right: 10px;
+}
+.payment-options img {
+    width: 100%;
+    max-width: 200px;
+    margin-top: 20px;
+}
+
+.kotak-rekening {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+}
+
+.rekening {
+    padding: 0 5px;
+}
+
+.transfer-content {
+    text-align: justify;
+}
+
+.qris-content {
+    text-align: justify;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    height: 210px;           
+    margin: 20px 0; 
+}
+
+.QRIS {
+    width: 750px;
+    height: auto;
+    padding-bottom: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox {
+    vertical-align: middle;
+    margin-right: 12px;
+}
+
+.order-summary {
+    text-align: center;
+}
+.order-summary p {
+    margin: 20px 0;
+}
+.order-summary .total {
+    font-size: 24px;
+    font-weight: bold;
+}
+.order-summary .terms {
+    font-size: 12px;
+    margin-top: 20px;
+}
+.order-summary button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.order-summary .proceed {
+    background-color: #2E7D32;
+    color: #FFFFFF;
+}
+.order-summary .continue {
+    background-color: #616161;
+    color: #FFFFFF;
+}
+.modal {
+    top: 250px;
+    width: 694px;
+    height: 324px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.modal-content {
+    background-color: #424242;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #FFFFFF;
+    display: none;
+}
+.modal-content button {
+    width: 45%;
+    padding: 10px;
+    margin: 10px 5%;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.modal-content .make-payment, .modal-content .cancel-payment {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block; /* Set both buttons as inline-block */
+}
+
+.modal-content .make-payment {
+    margin-top: 25px;
+    background-color: #2E7D32; /* Green color for Make Payment */
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.modal-content .make-payment:hover {
+    background-color: #1F4529;
+}
+
+.modal-content .cancel-payment {
+    background-color: #B71C1C; /* Red color for Cancel Payment */
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.modal-content .cancel-payment:hover {
+    background-color: #3D0000;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .payment-options, .order-summary {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
