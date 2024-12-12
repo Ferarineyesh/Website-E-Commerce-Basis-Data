@@ -3,6 +3,10 @@ header("Cache-Control: no-cache, must-revalidate");
 header("Pragma: no-cache");
 header("Expires: 0");
 include("conn.php");
+$category_id = isset($_GET['category']) ? $_GET['category'] : null;
+$query = $category_id ? 
+    mysqli_query($conn, "SELECT * FROM product WHERE kategori = '$category_id'") : 
+    mysqli_query($conn, "SELECT * FROM product");
 $query = mysqli_query($conn, "SELECT * FROM product");
 ?>
 <!DOCTYPE html>
@@ -46,45 +50,21 @@ $query = mysqli_query($conn, "SELECT * FROM product");
         </div>
 
         <div class="categories-list">
-        <div class="list">
-                    <a href=""><img src="./assets/kitchen.png" alt=""></a>
-                    <span>Kitchen Needs</span>
-                </div>
                 <div class="list">
                     <a href=""><img src="./assets/mother.png" alt=""></a>
-                    <span>Mother and <br>Child’s Needs</span>
+                    <span>Kebutuhan <br>Sehari-hari</span>
                 </div>
                 <div class="list">
                     <a href=""><img src="./assets/home.png" alt=""></a>
-                    <span>Home Needs</span>
+                    <span>Rumah Tangga</span>
                 </div>
                 <div class="list">
                     <a href=""><img src="./assets/food.png" alt=""></a>
-                    <span>Food</span>
+                    <span>Makanan</span>
                 </div>
                 <div class="list">
                     <a href=""><img src="./assets/drink.png" alt=""></a>
-                    <span>Drink</span>
-                </div>
-                <div class="list">
-                    <a href=""><img src="./assets/frozen.png" alt=""></a>
-                    <span>Frozen Products</span>
-                </div>
-                <div class="list">
-                    <a href=""><img src="./assets/personal.png" alt=""></a>
-                    <span>Personal Care</span>
-                </div>
-                <div class="list">
-                    <a href=""><img src="./assets/health.png" alt=""></a>
-                    <span>Health Needs</span>
-                </div>
-                <div class="list">
-                    <a href=""><img src="./assets/lifestyle.png" alt=""></a>
-                    <span>Lifestyle</span>
-                </div>
-                <div class="list">
-                    <a href=""><img src="./assets/pet.png" alt=""></a>
-                    <span>Pet Foods</span>
+                    <span>Minuman</span>
                 </div>
         </div>
 
@@ -153,10 +133,10 @@ $query = mysqli_query($conn, "SELECT * FROM product");
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha384-oBWosVvOtc/bDTsKSC4+dKF6MBj8ODIQegT8vZPb7hZ1Cfln6Ak4KPbbIhA6g11E" crossorigin="anonymous"></script>
     <script>
         let cartCount = 0;
-const cartElement = document.getElementById('keranjang');
-const cartCountElement = document.getElementById('cart-count');
-const cartContentElement = document.getElementById('cart-content');
-const cartItems = {};
+        const cartElement = document.getElementById('keranjang');
+        const cartCountElement = document.getElementById('cart-count');
+        const cartContentElement = document.getElementById('cart-content');
+        const cartItems = {};
 
 // Tambahkan event listener pada setiap tombol "Buy Now"
 document.querySelectorAll('.add-cart').forEach((button) => {

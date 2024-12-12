@@ -1,233 +1,58 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Page</title>
-    <!-- Poppins Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Config Tailwind -->
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              poppins: ["Poppins", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
-     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1B3A57;
-            margin: 0;
-            padding: 0;
-            color: white;
-        }
-        .header {
-            background-color: #FFFBF2;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            height: 40px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            color: #000;
-        }
-        .nav-links a {
-            color: #000;
-            text-decoration: none;
-        }
-        .profile-icon {
-            width: 30px;
-            height: 30px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .cart-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
-        }
-        .cart-item {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .cart-item-content {
-            display: flex;
-            gap: 20px;
-        }
-        .cart-item img {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
-            background-color: white;
-            border-radius: 8px;
-            padding: 10px;
-        }
-        .quantity-control {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .quantity-control button {
-            background-color: transparent;
-            color: white;
-            border: 1px solid white;
-            width: 24px;
-            height: 24px;
-            border-radius: 4px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .order-summary {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 20px;
-        }
-        .proceed-btn {
-            background-color: #2E7D32;
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 100%;
-            border-radius: 4px;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-        .continue-btn {
-            background-color: #424242;
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 100%;
-            border-radius: 4px;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-        .terms {
-            font-size: 12px;
-            margin: 10px 0;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-        .logo-text {
-            color: #2E7D32;
-            font-size: 24px;
-            font-weight: bold;
-            margin-left: 10px;
-        }
-    </style>
-
+    <link rel="stylesheet" href="deskripsi.css">
   </head>
-  <body class= " overflow-hidden font-poppins">
+
+  <body>
     <header class="header">
-        <div class="logo-container">
-            <img src="assets/logo.png" alt="Simple Mart" class="logo">
-            <span class="logo-text">SIMPLE MART</span>
+      <div class="logo-container">
+          <img src="./assets/logo.png" alt="Logo" class="logo">
+          <h1 class="name">SIMPLE MART</h1>
+      </div>
+      <nav class="nav-links">
+          <a href="/index.php" class="nav-link">Home</a>
+          <a href="#categories" class="nav-link">Categories</a>
+          <a href="#products" class="nav-link">Products</a>
+          <a href="/cart.php" class="nav-link">Carts</a>
+          <a href="#contact" class="nav-link">Contact Us</a>
+          <a href="/profile.html" class="profile-link"><img src="/assets/profil.png" alt="Profile" class="profile-icon"></a>
+      </nav>
+  </header>
+
+    <main class="container">
+      <section class="product-section">
+        <div class="product-image-wrapper">
+          <img src="https://down-id.img.susercontent.com/file/id-11134207-7qula-lhpri8ow959m6d" alt="Product Image" class="product-image">
         </div>
-        <nav class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Categories</a>
-            <a href="#">Products</a>
-            <a href="#">Contact Us</a>
-            <img src="assets/profil.png" alt="Profile" class="profile-icon">
-        </nav>
-    </header>
-    <main class="container mx-48 mt-16">
-      <section class="flex">
-        <div class="imgwrapped bg-white w-1/4 flex justify-center items-center rounded-xl shadow-lg shadow-yellow-500 ">
-            <img src="assets/item1.png" alt="">
-        </div>
-        <article class="ml-10 font-bold text-white w-1/2">
-          <header>
-            <h1 class="text-3xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </h1>
-            <h2 class="text-2xl my-5">Rp. 11.000</h2>
-            <div class="text-xl pb-5 border-white border-b">⭐⭐⭐⭐⭐</div>
-          </header>
-          <section class="my-5 flex">
-            <h3 class="font-normal">Quantity:</h3>
-            <button class="ml-5 bg-green-800 px-2 border border-yellow-500">
-              -
-            </button>
-            <span class="bg-green-800 px-5 border border-yellow-500">1</span>
-            <button class="bg-green-800 px-2 border border-yellow-500">
-              +
-            </button>
+
+        <article class="product-details">
+            <h1 class="product-title">Beras Merah</h1>
+            <h2 class="product-price">Rp. 80.000</h2>
+
+          <section class="product-quantity">
+            <h3 class="quantity-label">Quantity:</h3>
+            <button class="quantity-button">-</button>
+            <span class="quantity-control">1</span>
+            <button class="quantity-button">+</button>
           </section>
-          <footer class="flex mt-10">
-            <button
-              class="bg-green-800 px-5 py-2 rounded-full border border-yellow-500"
-            >
-              Add to Cart
-            </button>
-            <button
-              class="ml-5 bg-green-800 px-5 py-2 rounded-full border border-yellow-500"
-            >
-              Buy it now
-            </button>
-            <button
-              class="ml-5 bg-green-800 px-2 rounded-full border border-yellow-500"
-            >
-              ♥️
-            </button>
+
+          <footer class="product-footer">
+            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="buy-now-btn">Buy it now</button>
           </footer>
         </article>
       </section>
-      <section class="mt-16 text-white">
-        <header>
-          <h1 class="text-2xl">Description</h1>
-        </header>
-        <article class="w-3/4 border border-white mt-3 rounded-md">
-          <header>
-            <h2 class="font-semibold px-5 pt-3 italic">
-              Chitato Cheese Flavor
-            </h2>
-          </header>
-          <p class="text-justify px-5 pb-3">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Cupiditate, corrupti corporis quam aperiam molestias dolor, ipsam
-            perferendis voluptatum quidem inventore at ad sequi assumenda
-            consequatur non debitis minima quae modi placeat nesciunt possimus
-            reiciendis rerum perspiciatis. Impedit, repellat eum facere debitis
-            et, consectetur recusandae modi cum iure eligendi nam quisquam.
-            Beatae corrupti cupiditate fugit ratione eaque ut, tempore aliquam
-            deleniti asperiores quaerat dicta molestias voluptatibus impedit
-            distinctio ipsum minima laboriosam eum, eveniet iusto modi, illo
-            voluptas? Accusantium error quidem esse fugiat! Ut non porro,
-            laboriosam culpa, ducimus reprehenderit minima recusandae nostrum
-            odit quas dolorem iure illum dolorum possimus at. Animi!
+
+      <section class="description-section">
+          <h1 class="description-title">Description</h1>
+        <article class="description-content">
+            <h2 class="description-subtitle">Beras Merah</h2>
+          <p class="description-text">
+            Beras Ayana Merah merupakan beras putih premium dengan packaging berwarna merah rasa yang pulen, enak serta memiliki patahan yang sangat sedikit sekaligus proses pengolahan yang alami. Mengusung slogan "Ayana - Rahasia Restoran Jepang", diharapkan para konsumen dapat menikmati sajian dengan rasa khas Jepang di kehidupan sehari-hari ataupun untuk bisnis dapat memberikan cita rasa terbaik bagi konsumen.
           </p>
         </article>
       </section>
