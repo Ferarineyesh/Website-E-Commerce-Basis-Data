@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Verifikasi password
         if (password_verify($password, $user['password'])) {
             // Login berhasil, simpan informasi pengguna ke sesi
-            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['username'] = $username;
 
             // Redirect ke halaman utama

@@ -130,16 +130,22 @@ $totals = calculateTotals($_SESSION['cartItems']);
     </div>
     <nav class="nav-links">
         <a href="index.php" class="nav-link">Home</a>
-        <a href="index.php/#categories" class="nav-link">Categories</a>
-        <a href="index.php/#products" class="nav-link">Products</a>
+        <a href="#categories" class="nav-link">Categories</a>
+        <a href="#products" class="nav-link">Products</a>
         <a href="cart.php" class="nav-link">Carts</a>
-        <a href="index.php/#contact" class="nav-link">Contact Us</a>
-        <a href="profile.html" class="profile-link"><img src="./assets/profil.png" alt="Profile" class="profile-icon"></a>
+        <a href="#contact" class="nav-link">Contact Us</a>
+        <?php if($logged): ?>
+        <a href="/profile.html" class="profile-link"><img src="./assets/profil.png" alt="Profile" class="profile-icon"></a>
+        <?php else: ?> <a href="login.html" class="nav-link">Login</a>
+        <?php endif;?>
     </nav>
 </header>
 
     <div class="container">
-        <h1>MY CARTS</h1>
+        <div class="cart-header">
+            <h1>MY CARTS</h1>
+            <button class="empty-cart">Empty Cart</button>
+        </div>
         <div class="cart-grid">
             <div class="cart-items">
                 <?php if (is_array($_SESSION['cartItems']) && !empty($_SESSION['cartItems'])): ?>
@@ -178,8 +184,8 @@ $totals = calculateTotals($_SESSION['cartItems']);
                     <?php echo number_format($totals['total'], 0, ',', '.'); ?>
                 </span></h3>
                 <p class="terms">By clicking the payment button, you agree to our terms and conditions.</p>
-                <a href="pembayaran.php"><button class="proceed-btn">Proceed to Payment</button></a>
-                <button class="continue-btn">Continue Shopping</button>
+                <a href="pembayaran.php"><button class="proceed-btn">PROCEED TO PAYMENT</button></a>
+                <a href="index.php#products"><button class="continue-btn">CONTINUE SHOPPING</button></a>
             </div>
         </div>
     </div>
