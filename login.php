@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (password_verify($password, $user['password'])) {
             // Login berhasil, simpan informasi pengguna ke sesi
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
+            $_SESSION['username'] = $username;
 
             // Redirect ke halaman utama
             echo "<script>alert('Login berhasil!'); window.location.href = 'index.php';</script>";

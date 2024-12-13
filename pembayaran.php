@@ -15,13 +15,13 @@
             <h1 class="name">SIMPLE MART</h1>
         </div>
         <nav class="nav-links">
-            <a href="/index.php" class="nav-link">Home</a>
-            <a href="#categories" class="nav-link">Categories</a>
-            <a href="#products" class="nav-link">Products</a>
-            <a href="/cart.php" class="nav-link">Carts</a>
-            <a href="#contact" class="nav-link">Contact Us</a>
-            <a href="/profile.html" class="profile-link">
-                <img src="/assets/profil.png" alt="Profile" class="profile-icon">
+            <a href="index.php" class="nav-link">Home</a>
+            <a href="index.php#categories" class="nav-link">Categories</a>
+            <a href="index.php#products" class="nav-link">Products</a>
+            <a href="cart.php" class="nav-link">Carts</a>
+            <a href="index.php#contact" class="nav-link">Contact Us</a>
+            <a href="profile.html" class="profile-link">
+                <img src="./assets/profil.png" alt="Profile" class="profile-icon">
             </a>
         </nav>
     </header>

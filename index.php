@@ -1,12 +1,22 @@
 <?php
+session_start();
 header("Cache-Control: no-cache, must-revalidate");
 header("Pragma: no-cache");
 header("Expires: 0");
 include("conn.php");
-$category_id = isset($_GET['category']) ? $_GET['category'] : null;
-$query = $category_id ? 
-    mysqli_query($conn, "SELECT * FROM product WHERE kategori = '$category_id'") : 
-    mysqli_query($conn, "SELECT * FROM product");
+//$user = $_SESSION['username'];
+//echo "
+//<script>
+//    console.log('$user');
+//</script>
+//";
+if(!empty($_SESSION['username'])){
+    $logged = true;
+}
+else{
+    $logged = false;
+}
+//$logged=true;
 $query = mysqli_query($conn, "SELECT * FROM product");
 ?>
 <!DOCTYPE html>
@@ -27,12 +37,15 @@ $query = mysqli_query($conn, "SELECT * FROM product");
         <h1 class="name">SIMPLE MART</h1>
     </div>
     <nav class="nav-links">
-        <a href="/index.php" class="nav-link">Home</a>
+        <a href="index.php" class="nav-link">Home</a>
         <a href="#categories" class="nav-link">Categories</a>
         <a href="#products" class="nav-link">Products</a>
-        <a href="/cart.php" class="nav-link">Carts</a>
+        <a href="cart.php" class="nav-link">Carts</a>
         <a href="#contact" class="nav-link">Contact Us</a>
-        <a href="/profile.html" class="profile-link"><img src="/assets/profil.png" alt="Profile" class="profile-icon"></a>
+        <?php if($logged): ?>
+        <a href="/profile.html" class="profile-link"><img src="./assets/profil.png" alt="Profile" class="profile-icon"></a>
+        <?php else: ?> <a href="login.html">Login</a>
+        <?php endif;?>
     </nav>
 </header>
 
@@ -50,21 +63,45 @@ $query = mysqli_query($conn, "SELECT * FROM product");
         </div>
 
         <div class="categories-list">
+        <div class="list">
+                    <a href=""><img src="./assets/kitchen.png" alt=""></a>
+                    <span>Kitchen Needs</span>
+                </div>
                 <div class="list">
                     <a href=""><img src="./assets/mother.png" alt=""></a>
-                    <span>Kebutuhan <br>Sehari-hari</span>
+                    <span>Mother and <br>Child’s Needs</span>
                 </div>
                 <div class="list">
                     <a href=""><img src="./assets/home.png" alt=""></a>
-                    <span>Rumah Tangga</span>
+                    <span>Home Needs</span>
                 </div>
                 <div class="list">
                     <a href=""><img src="./assets/food.png" alt=""></a>
-                    <span>Makanan</span>
+                    <span>Food</span>
                 </div>
                 <div class="list">
                     <a href=""><img src="./assets/drink.png" alt=""></a>
-                    <span>Minuman</span>
+                    <span>Drink</span>
+                </div>
+                <div class="list">
+                    <a href=""><img src="./assets/frozen.png" alt=""></a>
+                    <span>Frozen Products</span>
+                </div>
+                <div class="list">
+                    <a href=""><img src="./assets/personal.png" alt=""></a>
+                    <span>Personal Care</span>
+                </div>
+                <div class="list">
+                    <a href=""><img src="./assets/health.png" alt=""></a>
+                    <span>Health Needs</span>
+                </div>
+                <div class="list">
+                    <a href=""><img src="./assets/lifestyle.png" alt=""></a>
+                    <span>Lifestyle</span>
+                </div>
+                <div class="list">
+                    <a href=""><img src="./assets/pet.png" alt=""></a>
+                    <span>Pet Foods</span>
                 </div>
         </div>
 
@@ -131,33 +168,44 @@ $query = mysqli_query($conn, "SELECT * FROM product");
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha384-oBWosVvOtc/bDTsKSC4+dKF6MBj8ODIQegT8vZPb7hZ1Cfln6Ak4KPbbIhA6g11E" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script>
-        let cartCount = 0;
-        const cartElement = document.getElementById('keranjang');
-        const cartCountElement = document.getElementById('cart-count');
-        const cartContentElement = document.getElementById('cart-content');
-        const cartItems = {};
+    const isLogged = <?php echo $logged ? 'true' : 'false'; ?>;
+    let cartCount = 0;
+const cartElement = document.getElementById('keranjang');
+const cartCountElement = document.getElementById('cart-count');
+const cartContentElement = document.getElementById('cart-content');
+const cartItems = {};
 
-// Tambahkan event listener pada setiap tombol "Buy Now"
+
+
 document.querySelectorAll('.add-cart').forEach((button) => {
-    button.addEventListener('click', (e) => {
-        const card = e.target.closest('.card');
-        const name = card.querySelector('.item-text p').textContent.trim();
-        const price = card.querySelector('.item-price p').textContent.replace('Rp. ', '').trim();
+        button.addEventListener('click', (e) => {
+            if (!isLogged) {
+                // Arahkan ke halaman login jika belum login
+                alert('Silakan login terlebih dahulu untuk menambahkan item ke keranjang.');
+                window.location.href = 'login.html';
+                return;
+            }
 
-        // Tambahkan item ke keranjang
-        if (!cartItems[name]) {
-            cartItems[name] = { quantity: 1, price: price };
-        } else {
-            cartItems[name].quantity++;
-        }
+            const card = e.target.closest('.card');
+            const name = card.querySelector('.item-text p').textContent.trim();
+            const price = card.querySelector('.item-price p').textContent.replace('Rp. ', '').trim();
 
-        cartCount++;
-        cartCountElement.textContent = cartCount;
-        renderCartItems();
-        cartElement.style.visibility = 'visible';
+            // Tambahkan item ke keranjang
+            if (!cartItems[name]) {
+                cartItems[name] = { quantity: 1, price: price };
+            } else {
+                cartItems[name].quantity++;
+            }
+
+            cartCount++;
+            cartCountElement.textContent = cartCount;
+            renderCartItems();
+            cartElement.style.visibility = 'visible';
+        });
     });
-});
 
 // Fungsi untuk me-render item dalam keranjang
 function renderCartItems() {
@@ -210,27 +258,53 @@ function renderCartItems() {
 
 // Fungsi untuk menambahkan item ke database melalui AJAX
 function added() {
-    // Konversi data keranjang menjadi array yang dapat dikirimkan
+    console.log("Fungsi added() dipanggil!");
+
+    // Siapkan data keranjang
     const dataToSend = Object.entries(cartItems).map(([name, details]) => ({
         name,
         price: details.price,
         quantity: details.quantity,
     }));
 
-    // Kirim data ke server
-    $.post('index.php', { cartData: JSON.stringify(dataToSend) }, function (response) {
-        console.log('Server Response:', response);
+    console.log("Data yang dikirim:", dataToSend);
 
-        // Kosongkan keranjang setelah data berhasil dikirim
-        Object.keys(cartItems).forEach((key) => delete cartItems[key]);
-        cartCount = 0;
-        cartCountElement.textContent = cartCount;
-        cartContentElement.innerHTML = '';
-        cartElement.style.visibility = 'hidden'; // Sembunyikan keranjang
-    }).fail(function (error) {
-        console.error('Error Sending Data:', error);
+    // Kirim data ke server menggunakan AJAX POST
+    $.ajax({
+        url: 'addtocart.php',
+        type: 'POST',
+        data: { cartData: JSON.stringify(dataToSend) },
+        dataType: 'json', // Pastikan server mengirim JSON
+        success: function (response) {
+            console.log("Server Response:", response);
+
+            if (response.success) {
+                console.log("Server mengembalikan sukses");
+
+                // Kosongkan keranjang
+                Object.keys(cartItems).forEach((key) => delete cartItems[key]);
+                cartCount = 0;
+                cartCountElement.textContent = cartCount;
+                cartContentElement.innerHTML = '';
+                console.log("Keranjang dikosongkan");
+
+                // Sembunyikan elemen keranjang
+                cartElement.style.visibility = 'hidden';
+
+                // Redirect ke halaman keranjang
+                //window.location.href = "cart.php";
+            } else {
+                console.error("Server Error:", response.message);
+                alert(`Error: ${response.message}`);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error("Error Sending Data:", error);
+            alert('Gagal mengirim data ke server. Silakan coba lagi.');
+        }
     });
 }
+
 
 // Tambahkan event listener pada tombol "Add To Cart"
 const tambahButton = document.getElementById("tambah");
