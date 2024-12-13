@@ -2,7 +2,20 @@
 session_start();
 $_SESSION['cartItems'] = null;
 include("conn.php");
-$query = mysqli_query($conn, "SELECT * FROM cart_items where user_id=2");
+if(!empty($_SESSION["username"])){
+  $logged = true;
+}
+else{
+  $logged=false;
+  echo "
+  <script>
+    alert('Silahkan Login terlebih dahulu!');
+    window.location.href = 'login.html';
+  </script>
+  ";
+}
+$user_id = (int)$_SESSION['user_id'];
+$query = mysqli_query($conn, "SELECT * FROM cart_items where user_id=$user_id");
 // Initialize cart items or set default
 if (!isset($_SESSION['cartItems'])) {
     $_SESSION['cartItems'] = [];
@@ -116,12 +129,12 @@ $totals = calculateTotals($_SESSION['cartItems']);
         <h1 class="name">SIMPLE MART</h1>
     </div>
     <nav class="nav-links">
-        <a href="/index.php" class="nav-link">Home</a>
-        <a href="#categories" class="nav-link">Categories</a>
-        <a href="#products" class="nav-link">Products</a>
-        <a href="/cart.php" class="nav-link">Carts</a>
-        <a href="#contact" class="nav-link">Contact Us</a>
-        <a href="/profile.html" class="profile-link"><img src="/assets/profil.png" alt="Profile" class="profile-icon"></a>
+        <a href="index.php" class="nav-link">Home</a>
+        <a href="index.php/#categories" class="nav-link">Categories</a>
+        <a href="index.php/#products" class="nav-link">Products</a>
+        <a href="cart.php" class="nav-link">Carts</a>
+        <a href="index.php/#contact" class="nav-link">Contact Us</a>
+        <a href="profile.html" class="profile-link"><img src="./assets/profil.png" alt="Profile" class="profile-icon"></a>
     </nav>
 </header>
 
@@ -165,7 +178,7 @@ $totals = calculateTotals($_SESSION['cartItems']);
                     <?php echo number_format($totals['total'], 0, ',', '.'); ?>
                 </span></h3>
                 <p class="terms">By clicking the payment button, you agree to our terms and conditions.</p>
-                <a href="/pembayaran.html"><button class="proceed-btn">Proceed to Payment</button></a>
+                <a href="pembayaran.php"><button class="proceed-btn">Proceed to Payment</button></a>
                 <button class="continue-btn">Continue Shopping</button>
             </div>
         </div>
