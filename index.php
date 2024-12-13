@@ -43,7 +43,7 @@ $query = mysqli_query($conn, "SELECT * FROM product");
         <a href="cart.php" class="nav-link">Carts</a>
         <a href="#contact" class="nav-link">Contact Us</a>
         <?php if($logged): ?>
-        <a href="/profile.html" class="profile-link"><img src="./assets/profil.png" alt="Profile" class="profile-icon"></a>
+        <a href="/profile.php" class="profile-link"><img src="./assets/profil.png" alt="Profile" class="profile-icon"></a>
         <?php else: ?> <a href="login.html" class="nav-link">Login</a>
         <?php endif;?>
     </nav>

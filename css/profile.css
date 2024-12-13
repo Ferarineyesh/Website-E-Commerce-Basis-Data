@@ -1,122 +1,248 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-*{
-    margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    font-family: 'Poppins';
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
-html, body{
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    font-family: "Poppins";
-    background-color: #10375C;
-}
-
-.profile-container{
+.header {
+    background-color: #F3F3E0;
+    height: 86px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 100vh;
 }
 
-.profile-box{
-    background-color: #a9a7a7;
-    width: 25%;
-    height: 85%;
-    display: block;
-    border-radius: 30px;
-}
-
-.profile-box img{
-    padding: 10px;
+/* Logo section styling */
+.logo-container {
     display: flex;
-    margin: 0 auto;
-    width: 25%;
+    align-items: center;
+    margin-left: 18px;
 }
 
-.profile-box h2{
-    font-size: 20px;
-    font-weight: 600;
-    color: #1F4529;
+.logo {
+    width: 67px;
+    height: 65px;
+    top: 11px;
+    left: 14px;
+    margin-right: 10px;
+}
+
+.name {
+    margin: 0;
+    width: 237px;
+    height: 54px;
+    top: 16px;
+    margin-top: 7px;
+    margin-left: 5px;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 54px;
+    color: #2E5E37;
+}
+
+/* Navigation link styling */
+.nav-links {
     display: flex;
-    justify-content: center;
+    gap: 15px;
+    font-size: 16px;
+    align-items: right;
 }
 
-.profile-box p{
-    color: #1F4529;
-    font-size: 80%;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    gap: 7px;
-}
-
-.profile-box p a{
-    color: #1F4529;
+.nav-link {
     text-decoration: none;
+    color: black;
+    transition: 0.2s;
 }
 
-.profile-box h4{
-    color: #1F4529;
+/* Profile icon styling */
+.profile-link {
+    display: inline-block;
+    margin-top: 7px;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #c7b79b;
+    padding: 5px;
+}
+
+
+/* Navbar link hover effect */
+header nav a:hover {
+    color: white;
+    background-color: #264e26;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.profile-link:hover {
+    background: none;
+    padding: 0;
+}
+
+body {
+    background-color: #142F48;
+}
+
+
+header nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.header-center {
     display: flex;
-    justify-content: center;
-    padding: 20px 0px 20px 0px;
+    justify-content: space-between;
+    width: fit-content;
+    align-items: center;
+}
+
+header.sticky {
+    padding: 17px;
+    transition: 0.3s ease-in-out;
+}
+
+nav {
+    display: block;
+    align-items: center;
+}
+
+
+a.active {
+    border-radius: 2px;
+}
+
+nav a:hover {
+    background: #1F4529;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 2px;
+}
+
+.profile:hover {
+    background: none;
+    padding: 0;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.profile-box {
+  background: #F3F3E0;
+  padding: 20px;  
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px; 
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.profile-box img {
+  width: 100px; 
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.profile-box h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.profile-box p {
+  font-size: 16px;
+  color: #555;
+}
+
+.profile-box a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.profile-box a:hover {
+  text-decoration: underline;
+}
+
+.profile-box h4 {
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Edit Button */
+.edit-btn {
+  background-color: #286137;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: 0.3s ease-in-out;
+}
+
+.edit-btn:hover {
+  background-color: #1F4529;
 }
 
 .form-container {
-    padding: 20px;
-    width: 300px;
-    margin: 0 auto;
-  }
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  max-width: 350px;
+  width: 100%;
+  padding: 10px;
+  margin: 0 auto; 
+}
 
-  .form-group {
-    margin-bottom: 10px;
-  }
+.form-group {
+  margin-bottom: 10px;
+}
 
-  label {
-    display: block;
-    color: #ffffff; 
-    font-size: 12px;
-    margin-bottom: 5px;
-  }
+.form-group label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  text-align: left;
+}
 
-  input {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    color: #ffffff; 
-    background-color: #1F4529;
-    font-size: 14px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
-  }
+.form-group input {
+  padding: 8px; 
+  font-size: 14px; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
 
-  input::placeholder {
-    color: #b5b5b5; 
-  }
+.submit-btn {
+  background-color: #286137;
+  color: white;
+  padding: 8px 16px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px; 
+  width: 100%;
+  margin-top: 15px;
+  transition: 0.3s ease-in-out;
+}
 
-  .submit-btn {
-    width: 100%;
-    padding: 10px;
-    margin-top: 12px;
-    border: none;
-    border-radius: 5px;
-    background-color: #f5f2e9; /
-    font-size: 16px;
-    color: #1F4529;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-
-  .submit-btn:hover {
-    background-color: #e3dfd1; 
-  }
-
-@media screen and (max-width: 1025px) {
-  .profile-box{
-    width: 35%;
-    height: 92%;
-  }
+.submit-btn:hover {
+  background-color: #1F4529;
 }

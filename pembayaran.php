@@ -20,7 +20,7 @@
             <a href="index.php#products" class="nav-link">Products</a>
             <a href="cart.php" class="nav-link">Carts</a>
             <a href="index.php#contact" class="nav-link">Contact Us</a>
-            <a href="profile.html" class="profile-link">
+            <a href="profile.php" class="profile-link">
                 <img src="./assets/profil.png" alt="Profile" class="profile-icon">
             </a>
         </nav>
