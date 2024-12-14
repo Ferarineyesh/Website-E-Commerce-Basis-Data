@@ -2,44 +2,44 @@
 include("conn.php");
 session_start();
 
-// Ambil data dari POST request
-$data = json_decode(file_get_contents("php://input"), true);
+if (empty($_SESSION["username"])) {
+    echo "<script>
+        alert('Unexpected server response.');
+        window.location.href = 'login.php';
+    </script>";
+    exit;
+}
 
-if (isset($data['cartItems'], $data['user_id'])) {
-    $cartItems = $data['cartItems'];
-    $user_id = (int)$data['user_id'];
+if (empty($_SESSION["cartItems"])) {
+    header("Location: index.php");
+    exit;
+}
 
-    // Proses pembayaran (contoh: simpan ke tabel orders)
-    foreach ($cartItems as $item) {
-        $product_id = $item['id'];
-        $quantity = $item['quantity'];
-        $price = $item['price'];
-        $total = $price * $quantity;
-        $names = $item["name"];
+$success = true;
 
-        // Simpan ke tabel orders
-        $query = mysqli_query($conn, "UPDATE cart_items 
-SET   
-    quantity = $quantity, 
-    price = $price
-WHERE 
-    user_id = $user_id
-    AND product_id = (
-        SELECT product_id FROM product WHERE name = '$names' LIMIT 1
-    )");
+foreach ($_SESSION["cartItems"] as $items) {
+    $prod_id = $items["id"];
+    $prices = $items["price"];
+    $names = mysqli_real_escape_string($conn, $items["name"]);
+    $quantity = $items["quantity"];
+    $user_id = (int)$_SESSION["user_id"];
 
-        if (!$query) {
-            echo json_encode(['status' => 'error', 'message' => 'Failed to process payment.']);
-            exit;
-        }
+    $query = mysqli_query($conn, "UPDATE cart_items SET quantity = $quantity, price = $prices WHERE user_id = $user_id AND product_id = (SELECT product_id FROM product WHERE name = '$names' LIMIT 1)");
+
+    if (!$query) {
+        $success = false;
+        break;
     }
+}
 
-    // Hapus cart items setelah pembayaran berhasil
-    $_SESSION['cartItems'] = [];
-    mysqli_query($conn, "DELETE FROM cart_items WHERE user_id=$user_id");
-
-    echo json_encode(['status' => 'success']);
+if ($success) {
+    // Jika semua update berhasil, redirect ke halaman pembayaran
+    header("Location: pembayaran.php");
 } else {
-    echo json_encode(['status' => 'error', 'message' => 'Invalid request data.']);
+    // Jika ada kesalahan, kembali ke halaman utama
+    echo "<script>
+        alert('Error updating cart items.');
+        window.location.href = 'index.php';
+    </script>";
 }
 ?>
