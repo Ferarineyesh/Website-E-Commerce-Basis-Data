@@ -20,12 +20,12 @@ if (isset($data['cartItems'], $data['user_id'])) {
         // Simpan ke tabel orders
         $query = mysqli_query($conn, "UPDATE cart_items 
 SET   
-    quantity = ?, 
-    price = ?
+    quantity = $quantity, 
+    price = $price
 WHERE 
-    user_id = ?
+    user_id = $user_id
     AND product_id = (
-        SELECT product_id FROM products WHERE name = ? LIMIT 1
+        SELECT product_id FROM product WHERE name = '$names' LIMIT 1
     )");
 
         if (!$query) {
