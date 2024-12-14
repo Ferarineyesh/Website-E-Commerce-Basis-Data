@@ -265,6 +265,7 @@ $totals = calculateTotals($_SESSION['cartItems']);
 document.getElementById("empty").addEventListener("click", deleting);
 
 /*function payment() {
+
     // Kirim data cartItems ke backend untuk proses pembayaran
     $.ajax({
         url: 'toPayment.php',
@@ -298,6 +299,7 @@ document.getElementById("empty").addEventListener("click", deleting);
 document.getElementById("payment").addEventListener("click", ()=>{
     window.location.href="./toPayment.php";
 });
+
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
