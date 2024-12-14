@@ -1,6 +1,8 @@
 <?php
 session_start();
-$_SESSION['cartItems'] = null;
+$_SESSION['cartItems'] = [];
+//$ids = $_SESSION["user_id"];
+$user = $_SESSION["username"];
 include("conn.php");
 if(!empty($_SESSION["username"])){
   $logged = true;
@@ -61,11 +63,10 @@ $counts--;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'], $_POST['action'])) {
     $id = $_POST['id'];
     $action = $_POST['action'];
-    
-    // Find the item in the cart
+
+    // Update kuantitas item di sesi
     foreach ($_SESSION['cartItems'] as &$item) {
         if ($item['id'] == $id) {
-            // Update quantity based on action
             if ($action == 'increase') {
                 $item['quantity']++;
             } elseif ($action == 'decrease' && $item['quantity'] > 0) {
@@ -75,8 +76,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'], $_POST['action']
         }
     }
 
-    // Calculate totals
+    // Hitung ulang total setelah pembaruan
     $totals = calculateTotals($_SESSION['cartItems']);
+
+    // Respon JSON untuk frontend
     $response = [
         'status' => 'success',
         'itemQuantity' => $_SESSION['cartItems'][$id - 1]['quantity'],
@@ -89,6 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'], $_POST['action']
     echo json_encode($response);
     exit;
 }
+
 
 // Function to calculate totals
 function calculateTotals($cartItems) {
@@ -144,7 +148,7 @@ $totals = calculateTotals($_SESSION['cartItems']);
     <div class="container">
         <div class="cart-header">
             <h1>MY CARTS</h1>
-            <button class="empty-cart">Empty Cart</button>
+            <button class="empty-cart" id="empty">Empty Cart</button>
         </div>
         <div class="cart-grid">
             <div class="cart-items">
@@ -184,11 +188,15 @@ $totals = calculateTotals($_SESSION['cartItems']);
                     <?php echo number_format($totals['total'], 0, ',', '.'); ?>
                 </span></h3>
                 <p class="terms">By clicking the payment button, you agree to our terms and conditions.</p>
-                <a href="pembayaran.php"><button class="proceed-btn">PROCEED TO PAYMENT</button></a>
+                <button class="proceed-btn" id="payment">PROCEED TO PAYMENT</button>
                 <a href="index.php#products"><button class="continue-btn">CONTINUE SHOPPING</button></a>
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha384-oBWosVvOtc/bDTsKSC4+dKF6MBj8ODIQegT8vZPb7hZ1Cfln6Ak4KPbbIhA6g11E" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
         function updateQuantity(id, action) {
@@ -216,6 +224,81 @@ $totals = calculateTotals($_SESSION['cartItems']);
                 alert('An error occurred. Please try again later.');
             });
         }
+
+        //Deleting Items
+        function deleting() {
+    const confirmation = confirm("Are you sure you want to delete all items?");
+    if (confirmation) {
+        // Kirim permintaan ke backend untuk menghapus item
+        $.ajax({
+    url: 'deleteCart.php', // URL file PHP untuk menghapus item
+    type: 'POST', // Metode HTTP POST
+    contentType: 'application/json', // Header untuk JSON
+    data: JSON.stringify({
+        user_id: <?php echo json_encode($user_id); ?> // Kirim user_id ke backend
+    }),
+    success: function (response) {
+        try {
+            const data = JSON.parse(response); // Parsing response JSON
+            if (data.status === 'success') {
+                alert("Items deleted!");
+                window.location.href = "cart.php"; // Redirect ke halaman cart
+            } else {
+                alert("Failed to delete items!");
+            }
+        } catch (e) {
+            console.error("Parsing Error:", e);
+            alert("Unexpected server response.");
+        }
+    },
+    error: function (xhr, status, error) {
+        console.error("AJAX Error:", error);
+        alert("An error occurred while processing the request.");
+    }
+});
+
+    } else {
+        alert("Item not deleted!");
+    }
+}
+
+document.getElementById("empty").addEventListener("click", deleting);
+
+/*function payment() {
+    // Kirim data cartItems ke backend untuk proses pembayaran
+    $.ajax({
+        url: 'toPayment.php',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            cartItems: <?php echo json_encode($_SESSION['cartItems']); ?>, // Kirim cartItems ke backend
+            user_id: <?php echo json_encode($user_id); ?> // Kirim user_id
+        }),
+        success: function (response) {
+            try {
+                const data = JSON.parse(response);
+                if (data.status === 'success') {
+                    alert("Payment successful!");
+                    window.location.href = "index.php"; // Redirect ke halaman utama
+                } else {
+                    alert("Payment failed: " + data.message);
+                }
+            } catch (e) {
+                console.error("Parsing Error:", e);
+                alert("Unexpected server response.");
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error("AJAX Error:", error);
+            alert("An error occurred while processing the payment.");
+        }
+    });
+}
+*/
+document.getElementById("payment").addEventListener("click", ()=>{
+    window.location.href="./toPayment.php";
+});
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha384-oBWosVvOtc/bDTsKSC4+dKF6MBj8ODIQegT8vZPb7hZ1Cfln6Ak4KPbbIhA6g11E" crossorigin="anonymous"></script>
