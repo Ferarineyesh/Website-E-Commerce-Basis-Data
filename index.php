@@ -134,7 +134,7 @@ $query = mysqli_query($conn, "SELECT * FROM product");
 
     </main>
 
-    <div class="card fixed-bottom d-flex" id="keranjang" style="opacity:0.96; width:100%;">
+    <div class="card fixed-bottom d-flex" id="keranjang" style="opacity:0.96; width:100%;overflow-y:auto;">
         <div class="card-header">
             <h1>Keranjang</h1>
         </div>
